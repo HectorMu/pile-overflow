@@ -1,0 +1,31 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "a monorepo fullstack template",
+  "workspaces": [
+    "app",
+    "api"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build:app": "npm run build --workspace=app",
+    "start:app": "npm run dev --workspace=app",
+    "start:api": "npm run dev --workspace=api",
+    "dev": "start npm run start:api && start npm run start:app",
+    "start": "npm run build:app && npm run start:api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HectorMu/react-templates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HectorMu/react-templates/issues"
+  },
+  "homepage": "https://github.com/HectorMu/react-templates#readme",
+  "dependencies": {
+    "sweetalert2": "^11.4.4"
+  }
+}

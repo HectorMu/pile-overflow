@@ -1,0 +1,29 @@
+{
+  "name": "mantenimiento-lab",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "i": "^0.3.7",
+    "npm": "^8.5.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.2.0",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.2.0",
+    "react-router-dom": "^6.2.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^2.8.0"
+  },
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
