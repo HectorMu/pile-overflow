@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const Session = React.createContext();
-function SessionContextProvider({ children }) {
+function SessionProvider({ children }) {
   const userData = JSON.parse(window.localStorage.getItem("userSession"));
   const [user, setUser] = useState(userData);
 
@@ -10,4 +10,4 @@ function SessionContextProvider({ children }) {
   );
 }
 
-export default SessionContextProvider;
+export default SessionProvider;

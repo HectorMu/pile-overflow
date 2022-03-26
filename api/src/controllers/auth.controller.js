@@ -8,7 +8,7 @@ controller.Login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const results = await connection.query(
-      `select * from users where email = ? `,
+      `select * from user where email = ? `,
       [email]
     );
     if (!results.length > 0)
@@ -61,10 +61,10 @@ controller.Login = async (req, res) => {
 };
 
 controller.Signup = async (req, res) => {
-  const { username, firstname, lastname, email, password } = req.body;
+  const { username, fullname, email, password } = req.body;
   try {
     const results = await connection.query(
-      `select * from users where email = ? `,
+      `select * from user where email = ? `,
       [email]
     );
     if (results.length > 0)
@@ -76,14 +76,13 @@ controller.Signup = async (req, res) => {
 
     const newUser = {
       username,
-      firstname,
-      lastname,
+      fullname,
       email,
       password,
     };
 
     newUser.password = await helpers.encryptPassword(newUser.password);
-    await connection.query("insert into users set ?", [newUser]);
+    await connection.query("insert into user set ?", [newUser]);
     res.status(200).json({ status: true, statusText: "userRegistered" });
   } catch (error) {
     console.log(error);

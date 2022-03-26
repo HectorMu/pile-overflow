@@ -1,8 +1,8 @@
-create database pill_overflow;
+create database pile_overflow;
 
-use pill_overflow;
+use pile_overflow;
 
-create table users (
+create table user (
     id int primary key auto_increment,
     username varchar(100),
     firstname varchar(100),
@@ -11,12 +11,12 @@ create table users (
     password varchar (255)
 );
 
-create table categories (
+create table tag (
     id int primary key auto_increment,
-    category varchar(50)
+    description varchar(50)
 );
 
-insert into categories values
+insert into tag values
 (null, 'javascript'),
 (null, 'reactjs'),
 (null, 'c++'),
@@ -30,45 +30,50 @@ insert into categories values
 (null, 'android'),
 (null, 'sql'),
 (null, 'mysql'),
-(null, 'base-de-datos')
+(null, 'base-de-datos'),
 (null, 'css'),
 (null, 'laravel'),
-(null, 'bootstrap')
+(null, 'bootstrap');
 
-create table questions (
+create table question (
     id int primary key auto_increment,
     fk_user int,
     question varchar(100),
     description TEXT,
     views int,
-    fk_category int,
     status varchar (50),
-    foreign key(fk_user) references users(id),
-    foreign key(fk_category) references categories(id)
+    foreign key(fk_user) references user(id)
 );
 
-create table questions_views(
+CREATE TABLE question_tags(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	fk_question INT,
+	fk_tag INT,
+	foreign key(fk_question)references question(id),
+	FOREIGN KEY (fk_tag) REFERENCES tag(id)
+);
+
+create table question_views(
     fk_user int primary key,
     fk_question int,
-    foreign key(fk_user)references users(id),
-    foreign key(fk_question)references questions(id),
+    foreign key(fk_user)references user(id),
+    foreign key(fk_question)references question(id)
 );
 
-create table answers (
+create table answer (
     id int primary key auto_increment,
     fk_user int,
     fk_question int,
     answer TEXT,
-    foreign key(fk_user)references users(id),
-    foreign key(fk_question)references questions(id)
+    foreign key(fk_user)references user(id),
+    foreign key(fk_question)references question(id)
 );
 
-create table answers_votes(
+create table answer_votes(
     fk_answer int primary key,
     fk_question int, 
     fk_user int,
-    foreign key(fk_user)references users(id),
-    foreign key(fk_question)references questions(id),
-    foreign key (fk_answer) references answers(id)
-);
-
+    foreign key(fk_user)references user(id),
+    foreign key(fk_question)references question(id),
+    foreign key (fk_answer) references answer(id)
+)

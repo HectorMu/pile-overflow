@@ -6,25 +6,28 @@ import "./css/main.css";
 import { Toaster } from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Global/Layout";
-import Template from "./routes/Template";
+import AppRoutes from "./routes";
+import Index from "./pages/Index";
+import SessionProvider from "./context/SessionProvider";
 
 function App() {
   useEffect(() => {
     Aos.init();
   }, []);
   return (
-    <div>
+    <SessionProvider>
       <Layout>
         <Routes>
           {/* <Route path="/" element={<IsAlreadyLogged view={Index} />} /> */}
           {/* <Route path="/home" element={<IsLoggedIn view={Home} />} /> */}
-          {Template.dev.map((route) => (
+          <Route path={"/"} element={Index} />
+          {AppRoutes.dev.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
         </Routes>
       </Layout>
       <Toaster />
-    </div>
+    </SessionProvider>
   );
 }
 
