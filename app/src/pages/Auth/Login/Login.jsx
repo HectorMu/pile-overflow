@@ -7,9 +7,10 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import authService from "../../services/auth";
-
-import image from "../../Assets/login-image.svg";
+import authService from "../services/auth";
+import useRouterHooks from "../../../hooks/useRouterHooks";
+import useSession from "../../../hooks/useSession";
+import image from "./assets/login-image.svg";
 import toast from "react-hot-toast";
 
 const FormEntries = {
@@ -20,6 +21,10 @@ const FormEntries = {
 const Login = () => {
   const [credentials, setCredentials] = useState(FormEntries);
   const [onCardFocus, setOnCardFocus] = useState(false);
+
+  const { user, setUser } = useSession();
+
+  const { navigate } = useRouterHooks();
 
   const handleChange = (key, value) =>
     setCredentials({ ...credentials, [key]: value });
@@ -34,8 +39,13 @@ const Login = () => {
       return toast.error(results.statusText, { id: tLoading });
     }
 
+    window.localStorage.setItem(
+      "POSession",
+      JSON.stringify(results.SessionData)
+    );
+    setUser(JSON.parse(window.localStorage.getItem("POSession")));
     toast.success("Welcome!", { id: tLoading });
-    navigate("/");
+    navigate("/home");
   };
 
   return (

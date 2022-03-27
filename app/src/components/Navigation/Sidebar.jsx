@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-//import useSession from "../../hooks/useSession";
+import useSession from "../../hooks/useSession";
 
 const Sidebar = ({ setIsActive, isActive }) => {
-  //const { user } = useSession();
+  const { user } = useSession();
 
-  //   if (user === null) {
-  //     return <></>;
-  //   }
+  if (user === null) {
+    return <></>;
+  }
 
   return (
     <aside className={`sidebar bg-dark ${isActive ? `active` : ``} `}>
@@ -20,14 +20,14 @@ const Sidebar = ({ setIsActive, isActive }) => {
         </button>
       </div>
       <nav className="menu">
-        <NavLink to="/me/catalog" className="menu-item">
+        <NavLink to="/home" className="menu-item">
           Home
         </NavLink>
-        <NavLink to="/meet" className="menu-item">
-          Meet people
+        <NavLink to="/me/questions" className="menu-item">
+          My questions
         </NavLink>
-        <NavLink to="/friends" className="menu-item">
-          Friends
+        <NavLink to="/me/answers" className="menu-item">
+          My answers
         </NavLink>
       </nav>
     </aside>

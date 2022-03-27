@@ -1,5 +1,5 @@
-import API from "../config/API";
-import helpers from "../helpers/helpers";
+import API from "../../config/API";
+import helpers from "../../../helpers/helpers";
 
 const LogIn = async (credentials) => {
   try {

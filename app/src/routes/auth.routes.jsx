@@ -1,6 +1,6 @@
 import IsAlreadyLogged from "../components/Auth/IsAlreadyLogged";
-import Login from "../pages/Auth/Login";
-import Signup from "../pages/Auth/Signup";
+import Login from "../pages/Auth/Login/Login";
+import Signup from "../pages/Auth/Signup/Signup";
 
 const Template = {
   dev: [

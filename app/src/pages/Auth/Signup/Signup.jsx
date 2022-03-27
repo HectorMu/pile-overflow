@@ -8,10 +8,10 @@ import {
   Button,
 } from "react-bootstrap";
 import toast from "react-hot-toast";
-import useRouterHooks from "../../hooks/useRouterHooks";
+import useRouterHooks from "../../../hooks/useRouterHooks";
 
-import image from "../../Assets/signup-image.svg";
-import authService from "../../services/auth";
+import image from "./assets/signup-image.svg";
+import authService from "../services/auth";
 
 const FormEntries = {
   username: "",
