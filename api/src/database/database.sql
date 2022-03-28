@@ -40,7 +40,6 @@ create table question (
     fk_user int,
     question varchar(100),
     description TEXT,
-    views int,
     status varchar (50),
     foreign key(fk_user) references user(id)
 );

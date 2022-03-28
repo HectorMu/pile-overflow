@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import toast from "react-hot-toast";
 import useRouterHooks from "../../../hooks/useRouterHooks";
+import { Link } from "react-router-dom";
 
 import image from "./assets/signup-image.svg";
 import authService from "../services/auth";
@@ -44,99 +45,125 @@ const Signup = () => {
 
   return (
     <Container fluid className="d-flex align-items-center h-100">
-      <Col className="mx-auto" xl="4">
-        <h1 className="text-center">Welcome</h1>
-        <h3 className="text-center">
-          Create an account to start making questions
-        </h3>
-        <Card
-          onMouseEnter={() => setOnCardFocus(true)}
-          onMouseLeave={() => setOnCardFocus(false)}
-          className={`rounded-0  border-0 shadow  ${
-            onCardFocus ? "shadow-lg" : ""
-          }`}
-        >
-          <Card.Body>
-            <Row>
-              <Col xl="12" xxl="12">
-                <img src={image} className="w-100" />{" "}
-              </Col>
-              <Col xl="12" xxl="12 mt-5">
-                <form onSubmit={handleSignup}>
-                  <Row>
-                    <Col>
-                      <div className="mb-3">
-                        <FormControl
-                          placeholder="Username"
-                          onChange={(e) =>
-                            handleChange("username", e.target.value)
-                          }
-                          value={userData.username}
-                        />
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="mb-3">
-                        <FormControl
-                          placeholder="Fullname"
-                          onChange={(e) =>
-                            handleChange("fullname", e.target.value)
-                          }
-                          value={userData.fullname}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+      <Col className="mx-auto" lg="8" xl="8" xxl="10">
+        <Row>
+          <Col className="text-white shadow-lg">
+            <div className="d-flex flex-column justify-content-between align-items-center h-100">
+              <div className="pt-5">
+                <h1 className="text-center">Welcome</h1>
+                <h3 className="text-center">
+                  Create an account to start making questions
+                </h3>
+              </div>
 
-                  <div className="mb-3">
-                    <FormControl
-                      placeholder="Email"
-                      type="email"
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      value={userData.email}
-                    />
-                  </div>
-                  <Row>
-                    <Col>
+              <div className="d-flex flex-column align-items-center gap-3">
+                <div>
+                  <h6 className="text-center">Or</h6>
+                  <Link
+                    to={"/login"}
+                    className="btn btn-outline-light rounded-0 btn-lg"
+                  >
+                    Log in
+                  </Link>
+                </div>
+
+                <h6>If you already have one</h6>
+              </div>
+            </div>
+          </Col>
+          <Col>
+            <Card
+              onMouseEnter={() => setOnCardFocus(true)}
+              onMouseLeave={() => setOnCardFocus(false)}
+              className={`rounded-0  border-0 shadow  ${
+                onCardFocus ? "shadow-lg" : ""
+              }`}
+            >
+              <Card.Body>
+                <Row>
+                  <Col xl="12" xxl="12">
+                    <img src={image} className="w-100" />{" "}
+                  </Col>
+                  <Col xl="12" xxl="12 mt-5">
+                    <form onSubmit={handleSignup}>
+                      <Row>
+                        <Col>
+                          <div className="mb-3">
+                            <FormControl
+                              placeholder="Username"
+                              onChange={(e) =>
+                                handleChange("username", e.target.value)
+                              }
+                              value={userData.username}
+                            />
+                          </div>
+                        </Col>
+                        <Col>
+                          <div className="mb-3">
+                            <FormControl
+                              placeholder="Fullname"
+                              onChange={(e) =>
+                                handleChange("fullname", e.target.value)
+                              }
+                              value={userData.fullname}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+
                       <div className="mb-3">
                         <FormControl
-                          placeholder="Password"
-                          type="password"
+                          placeholder="Email"
+                          type="email"
                           onChange={(e) =>
-                            handleChange("password", e.target.value)
+                            handleChange("email", e.target.value)
                           }
-                          value={userData.password}
+                          value={userData.email}
                         />
                       </div>
-                    </Col>
-                    <Col>
-                      <div className="mb-3">
-                        <FormControl
-                          placeholder="Confirm"
-                          type="password"
-                          onChange={(e) =>
-                            handleChange("confirm", e.target.value)
-                          }
-                          value={userData.confirm}
-                        />
+                      <Row>
+                        <Col>
+                          <div className="mb-3">
+                            <FormControl
+                              placeholder="Password"
+                              type="password"
+                              onChange={(e) =>
+                                handleChange("password", e.target.value)
+                              }
+                              value={userData.password}
+                            />
+                          </div>
+                        </Col>
+                        <Col>
+                          <div className="mb-3">
+                            <FormControl
+                              placeholder="Confirm"
+                              type="password"
+                              onChange={(e) =>
+                                handleChange("confirm", e.target.value)
+                              }
+                              value={userData.confirm}
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <div className="d-flex justify-content-center">
+                        <Button
+                          type="submit"
+                          variant="outline-primary"
+                          className="rounded-0 shadow"
+                          size="lg"
+                        >
+                          Sign me up
+                        </Button>
                       </div>
-                    </Col>
-                  </Row>
-                  <div className="d-flex justify-content-center">
-                    <Button
-                      type="submit"
-                      variant="outline-primary"
-                      className="rounded-0 shadow"
-                      size="lg"
-                    >
-                      Sign me up
-                    </Button>
-                  </div>
-                </form>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
+                    </form>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Col>
     </Container>
   );
