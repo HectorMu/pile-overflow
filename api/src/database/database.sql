@@ -52,13 +52,6 @@ CREATE TABLE question_tags(
 	FOREIGN KEY (fk_tag) REFERENCES tag(id)
 );
 
-create table question_views(
-    fk_user int primary key,
-    fk_question int,
-    foreign key(fk_user)references user(id),
-    foreign key(fk_question)references question(id)
-);
-
 create table answer (
     id int primary key auto_increment,
     fk_user int,

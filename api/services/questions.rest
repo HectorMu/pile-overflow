@@ -6,7 +6,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 
 ###
-GET http://localhost:4000/api/global/questions/4
+GET http://localhost:4000/api/global/tags
+
+###
+GET http://localhost:4000/api/global/questions/id/1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 
@@ -15,6 +18,11 @@ GET http://localhost:4000/api/global/questions/how
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 
+
+###
+GET http://localhost:4000/api/questions/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 ###
 GET http://localhost:4000/api/questions
 Content-Type: application/json
@@ -26,9 +34,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 
 {
-    "question":"How to delete a prop from a object in JS?",
-    "description":"I need to delete a propierty from a object in js and clean the object",
-    "tags":[1,10]
+    "question":"How to create an object on PHP?",
+    "description":"I need to create an anonymous objecto on PHP",
+    "tags":[7,16]
 }
 
 
@@ -42,3 +50,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
     "description":"I need to delete a propierty from a object in js and clean the object, i need to do it for more than one prop",
     "tags":[1,9]
 }
+
+###
+PUT http://localhost:4000/api/question/resolved/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
+
+### 
+
+DELETE http://localhost:4000/api/delete/question/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw

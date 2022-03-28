@@ -1,0 +1,35 @@
+###
+GET http://localhost:4000/api/global/answers/1
+
+###
+GET http://localhost:4000/api/answers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
+
+###
+POST http://localhost:4000/api/create/answer/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
+
+{
+    "answer":"You can use delete reserved word, like: delete user.password, and the job is done"
+}
+
+###
+PUT http://localhost:4000/api/update/answer/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
+
+{
+    "answer":"You can use delete reserved word, like: delete user.password, and the job is done, or you can make a destructuration too"
+}
+
+###
+DELETE http://localhost:4000/api/delete/answer/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
+
+###
+POST http://localhost:4000/api/answer/vote/1/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJDZWxlc3RlMDMxIiwiZW1haWwiOiJjZWxlc3RlQGdtYWlsLmNvbSIsImlhdCI6MTY0ODQ4ODg1OH0.szTzVL2AQw4UwBac0euedLpkx6o3OMTnuYaOjJLrfzM
