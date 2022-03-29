@@ -17,8 +17,12 @@ function App() {
     <SessionProvider>
       <Layout>
         <Routes>
-          {AppRoutes.dev.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
+          {AppRoutes.prod.map((route, i) => (
+            <Route
+              key={route.path + i}
+              path={route.path}
+              element={route.element}
+            />
           ))}
         </Routes>
       </Layout>

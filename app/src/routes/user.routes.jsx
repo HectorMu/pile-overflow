@@ -1,4 +1,6 @@
 import IsAlreadyLogged from "../components/Auth/IsAlreadyLogged";
+import IsLoggedIn from "@/components/Auth/IsLoggedIn";
+import Add from "@/pages/Questions/Add/Add";
 import Home from "../pages/Home/Home";
 
 const Template = {
@@ -14,6 +16,10 @@ const Template = {
     {
       path: "/home",
       element: <IsAlreadyLogged view={Home} />,
+    },
+    {
+      path: "/newanswer",
+      element: <IsLoggedIn view={Add} />,
     },
   ],
 };

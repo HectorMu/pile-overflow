@@ -7,7 +7,11 @@ const controller = require("../controllers/questions.controller");
 router.get("/api/global/questions", controller.getAllQuestions);
 router.get("/api/global/tags", controller.getAllTags);
 router.get("/api/global/questions/id/:id", controller.getOneQuestionByID);
-router.get("/api/global/questions/:title", controller.getOneQuestionByTitle);
+router.get(
+  "/api/global/questions/getone/:title",
+  controller.getOneQuestionByTitle
+);
+router.get("/api/global/questions/:title", controller.searchQuestionsByTitle);
 
 router.get("/api/questions", verifyToken, controller.getUserQuestions);
 router.get("/api/questions/:id", verifyToken, controller.getOneUserQuestion);

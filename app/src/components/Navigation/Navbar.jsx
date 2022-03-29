@@ -9,12 +9,19 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import useSession from "../../hooks/useSession";
+
 import { Link, useNavigate } from "react-router-dom";
 
 const NavbarLayout = ({ setIsActive, isActive }) => {
   const { user, closeSession } = useSession();
 
   const navigate = useNavigate();
+
+  const handleSearch = async (e) => {
+    if (e.key === "Enter") {
+      navigate(`/search/${e.target.value}`);
+    }
+  };
 
   const handleLogOut = () => {
     closeSession();
@@ -35,6 +42,7 @@ const NavbarLayout = ({ setIsActive, isActive }) => {
                 <i className="fas fa-search text-white"></i>
               </InputGroup.Text>
               <FormControl
+                onKeyDown={(e) => handleSearch(e)}
                 placeholder="Search for answers..."
                 aria-label="Username"
                 className="rounded-0 border-0 shadow"

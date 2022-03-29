@@ -9,12 +9,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
 GET http://localhost:4000/api/global/tags
 
 ###
-GET http://localhost:4000/api/global/questions/id/1
+GET http://localhost:4000/api/global/questions/id/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 
 ###
-GET http://localhost:4000/api/global/questions/how
+GET http://localhost:4000/api/global/questions/getone/how
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJIZWN0b3IxMTciLCJlbWFpbCI6ImhlY3RvckBnbWFpbC5jb20iLCJpYXQiOjE2NDg0Mjk4MDh9.91JvzK2w1l4D6ZGe0tZsp5f9k85FaRl32YSch9bV_qw
 

@@ -6,7 +6,7 @@ const AppRoutes = {
   dev: [...AuthRoutes.dev, ...userRoutes.dev, ...globalRoutes.dev],
   prod: [
     ...AuthRoutes.production,
-    userRoutes.production,
+    ...userRoutes.production,
     ...globalRoutes.production,
   ],
 };

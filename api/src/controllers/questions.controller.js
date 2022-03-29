@@ -19,6 +19,26 @@ controller.getAllQuestions = async (req, res) => {
   }
 };
 
+controller.searchQuestionsByTitle = async (req, res) => {
+  const { title } = req.params;
+  try {
+    const questions = await conn.query(
+      `select * from question where question like '%${title}%'`
+    );
+
+    const tags = await conn.query(
+      "SELECT qt.fk_question, qt.fk_tag, g.description FROM question_tags qt, tag g WHERE qt.fk_tag = g.id"
+    );
+
+    const questionsWithTags = questions.map((question) => ({
+      ...question,
+      tags: tags.filter((tag) => tag.fk_question === question.id),
+    }));
+    res.json(questionsWithTags);
+  } catch (error) {
+    console.log(error);
+  }
+};
 controller.getAllTags = async (req, res) => {
   try {
     const tags = await conn.query("select * from tag");
