@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import answersService from "../../services/answers.service";
 import useRouterHooks from "@/hooks/useRouterHooks";
-import { Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, FormControl, Row } from "react-bootstrap";
 
 const Answers = () => {
   const [answers, setAnswers] = useState([]);
@@ -29,12 +29,40 @@ const Answers = () => {
   if (!answers.length > 0) {
     return (
       <div className="mt-5">
-        <h3 className="text-center">No answers yet</h3>
+        <Row>
+          <Col xl="12">
+            <h3 className="text-center">No answers yet</h3>
+          </Col>
+          <Col xl="12">
+            <h5>Do you know the solution?, answer this question!</h5>
+          </Col>
+          <Col xl="12">
+            <form>
+              <div className="mb-2">
+                <FormControl as={"textarea"} placeholder="Your answer..." />
+              </div>
+              <Button variant="outline-primary rounded-0">Submit</Button>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }
   return (
     <div className="mt-5">
+      <Row>
+        <Col xl="12">
+          <h5>Your answer</h5>
+        </Col>
+        <Col xl="12">
+          <form>
+            <div className="mb-2">
+              <FormControl as={"textarea"} placeholder="Your answer..." />
+            </div>
+            <Button variant="outline-primary rounded-0">Submit</Button>
+          </form>
+        </Col>
+      </Row>
       <h3>
         {answers.length} {answers.length > 1 ? "Answers" : "Answer"}
       </h3>

@@ -6,7 +6,15 @@ import { Badge, Button } from "react-bootstrap";
 
 const Showcase = () => {
   const [question, setQuestion] = useState({});
+  const [isOwner, setIsOwner] = useState(false);
   const { navigate, params } = useRouterHooks();
+
+  const isOwnerHandler = useCallback(async () => {
+    const result = await questionsService.checkOwnership(params.id);
+    if (result.isOwner) {
+      setIsOwner(true);
+    }
+  }, [params.id]);
 
   const getQuestionHandler = useCallback(async () => {
     const fetchedQuestion = await questionsService.getQuestionByID(params.id);
@@ -20,21 +28,27 @@ const Showcase = () => {
 
   useEffect(() => {
     getQuestionHandler();
-  }, [getQuestionHandler]);
+    isOwnerHandler();
+  }, [getQuestionHandler, isOwnerHandler]);
 
-  console.log(question);
+  console.log(isOwner);
   return (
     <div className="border-bottom border-3 border-dark py-3">
       <div className="d-flex justify-content-between align-items-center">
         <h3>{question?.question}</h3>
-        <div className="d-flex gap-1">
-          <Button size="sm" variant="outline-danger">
-            Delete
-          </Button>
-          <Button size="sm" variant="outline-dark">
-            Edit
-          </Button>
-        </div>
+        {isOwner ? (
+          <div className="d-flex gap-1">
+            <Button size="sm" variant="outline-danger">
+              Delete
+            </Button>
+            <Button size="sm" variant="outline-dark">
+              Edit
+            </Button>
+            <Button size="sm" variant="outline-info">
+              Resolved
+            </Button>
+          </div>
+        ) : null}
       </div>
 
       <p>Problem description:</p>

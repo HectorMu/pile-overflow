@@ -29,4 +29,10 @@ router.delete(
   controller.deleteQuestion
 );
 
+router.get(
+  "/api/questions/checkownership/:id",
+  verifyToken,
+  controller.checkIfItsUserQuestion
+);
+
 module.exports = router;

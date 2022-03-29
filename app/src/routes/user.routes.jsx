@@ -1,21 +1,21 @@
 import IsAlreadyLogged from "../components/Auth/IsAlreadyLogged";
 import IsLoggedIn from "@/components/Auth/IsLoggedIn";
 import Add from "@/pages/Questions/Add/Add";
-import Home from "../pages/Home/Home";
+import Index from "@/pages/Index/Index";
 
 const Template = {
   dev: [
     {
-      path: "/home",
-      element: <Home />,
+      path: "/",
+      element: <Index />,
     },
   ],
 
   //Protected for production
   production: [
     {
-      path: "/home",
-      element: <IsAlreadyLogged view={Home} />,
+      path: "/",
+      element: <IsAlreadyLogged view={Index} />,
     },
     {
       path: "/newanswer",

@@ -81,6 +81,17 @@ const getQuestionByID = async (id) => {
     console.log(error);
   }
 };
+const checkOwnership = async (id) => {
+  try {
+    const response = await fetch(
+      `${API}/questions/checkownership/${id}`,
+      helpers.authGetConfig()
+    );
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default {
   searchQuestion,
@@ -89,5 +100,6 @@ export default {
   markAsResolved,
   createQuestion,
   updateQuestion,
+  checkOwnership,
   deleteQuestion,
 };

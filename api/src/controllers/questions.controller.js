@@ -19,6 +19,23 @@ controller.getAllQuestions = async (req, res) => {
   }
 };
 
+controller.checkIfItsUserQuestion = async (req, res) => {
+  console.log(req.user.id);
+  try {
+    const results = await conn.query(
+      "select * from question where id = ? && fk_user = ?",
+      [req.params.id, req.user.id]
+    );
+    console.log(results);
+    if (!results.length > 0) {
+      return res.json({ status: true, isOwner: false });
+    }
+    res.json({ status: true, isOwner: true });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 controller.searchQuestionsByTitle = async (req, res) => {
   const { title } = req.params;
   try {
