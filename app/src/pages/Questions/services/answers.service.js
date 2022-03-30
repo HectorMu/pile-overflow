@@ -10,4 +10,45 @@ const getQuestionAnswers = async (questionid) => {
   }
 };
 
-export default { getQuestionAnswers };
+const getUserCurrentAnswerFromQuestion = async (questionid) => {
+  try {
+    const response = await fetch(
+      `${API}/get/ownanswer/${questionid}`,
+      helpers.authGetConfig()
+    );
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const saveAnswer = async (answer, fk_question) => {
+  try {
+    const response = await fetch(
+      `${API}/create/answer/${fk_question}`,
+      helpers.authPostConfig(answer)
+    );
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteAnswer = async (fk_answer) => {
+  try {
+    const response = await fetch(
+      `${API}/delete/answer/${fk_answer}`,
+      helpers.authDeleteConfig()
+    );
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default {
+  getQuestionAnswers,
+  getUserCurrentAnswerFromQuestion,
+  saveAnswer,
+  deleteAnswer,
+};

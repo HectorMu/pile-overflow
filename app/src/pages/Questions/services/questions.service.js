@@ -60,10 +60,10 @@ const getTags = async () => {
 
 const searchQuestion = async (searchTerm) => {
   try {
-    const response = await fetch(
-      `${API}/global/questions/${searchTerm}`,
-      helpers.authGetConfig()
-    );
+    const response = await fetch(`${API}/global/questions/${searchTerm}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
     return await response.json();
   } catch (error) {
     console.log(error);
@@ -72,10 +72,10 @@ const searchQuestion = async (searchTerm) => {
 
 const getQuestionByID = async (id) => {
   try {
-    const response = await fetch(
-      `${API}/global/questions/id/${id}`,
-      helpers.authGetConfig()
-    );
+    const response = await fetch(`${API}/global/questions/id/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
     return await response.json();
   } catch (error) {
     console.log(error);

@@ -25,6 +25,24 @@ controller.getAllQuestionAnswers = async (req, res) => {
   }
 };
 
+controller.getOneUserAnswerFromQuestion = async (req, res) => {
+  try {
+    const data = await conn.query(
+      "select * from answer where fk_user = ? && fk_question = ?",
+      [req.user.id, req.params.fk_question]
+    );
+
+    if (!data.length > 0) {
+      return res.json({});
+    }
+
+    const answer = data[0];
+    return res.json(answer);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 controller.getAllUserAnswers = async (req, res) => {
   try {
     const answers = await conn.query("select * from answer where fk_user = ?", [
@@ -73,10 +91,25 @@ controller.newAnswer = async (req, res) => {
     fk_user: req.user.id,
   };
   try {
+    const answerExists = await conn.query(
+      "Select * from answer where fk_user = ? && fk_question = ?",
+      [req.user.id, fk_question]
+    );
+
+    if (answerExists.length > 0) {
+      await conn.query(
+        "update  answer set ?  where fk_user = ? && fk_question = ?",
+        [questionAnswer, req.user.id, fk_question]
+      );
+      return res.json({
+        status: true,
+        statusText: "Answer edited, thanks for your help!",
+      });
+    }
     await conn.query("insert into answer set ? ", [questionAnswer]);
     res.json({
       status: true,
-      statusText: "Answer added, thanks fot your help!",
+      statusText: "Answer added, thanks for your help!",
     });
   } catch (error) {
     console.log(error);

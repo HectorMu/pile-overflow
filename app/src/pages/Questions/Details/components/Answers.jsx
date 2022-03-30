@@ -33,36 +33,12 @@ const Answers = () => {
           <Col xl="12">
             <h3 className="text-center">No answers yet</h3>
           </Col>
-          <Col xl="12">
-            <h5>Do you know the solution?, answer this question!</h5>
-          </Col>
-          <Col xl="12">
-            <form>
-              <div className="mb-2">
-                <FormControl as={"textarea"} placeholder="Your answer..." />
-              </div>
-              <Button variant="outline-primary rounded-0">Submit</Button>
-            </form>
-          </Col>
         </Row>
       </div>
     );
   }
   return (
     <div className="mt-5">
-      <Row>
-        <Col xl="12">
-          <h5>Your answer</h5>
-        </Col>
-        <Col xl="12">
-          <form>
-            <div className="mb-2">
-              <FormControl as={"textarea"} placeholder="Your answer..." />
-            </div>
-            <Button variant="outline-primary rounded-0">Submit</Button>
-          </form>
-        </Col>
-      </Row>
       <h3>
         {answers.length} {answers.length > 1 ? "Answers" : "Answer"}
       </h3>
@@ -70,7 +46,7 @@ const Answers = () => {
         <Card key={answer.id} className="shadow border-0">
           <Card.Body>
             <Row>
-              <Col>
+              <Col xl="2">
                 <div className="d-flex flex-column align-items-center justify-content-between gap-3">
                   <button className="btn border-1 border-light shadow">
                     <i
@@ -81,12 +57,16 @@ const Answers = () => {
                   </button>
 
                   <p>
-                    <span className="text-primary fw-bold">{answer.votes}</span>
+                    <span className="text-primary fw-bold">{answer.votes}</span>{" "}
                     Votes
                   </p>
                 </div>
               </Col>
-              <Col xxl="10">{answer.answer}</Col>
+              <Col xl="10" xxl="10">
+                <div className="d-flex align-items-center h-100">
+                  {answer.answer}
+                </div>
+              </Col>
             </Row>
           </Card.Body>
         </Card>

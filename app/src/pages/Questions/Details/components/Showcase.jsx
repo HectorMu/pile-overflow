@@ -31,7 +31,6 @@ const Showcase = () => {
     isOwnerHandler();
   }, [getQuestionHandler, isOwnerHandler]);
 
-  console.log(isOwner);
   return (
     <div className="border-bottom border-3 border-dark py-3">
       <div className="d-flex justify-content-between align-items-center">

@@ -23,4 +23,9 @@ router.delete(
   verifyToken,
   controller.deleteAnswer
 );
+router.get(
+  "/api/get/ownanswer/:fk_question",
+  verifyToken,
+  controller.getOneUserAnswerFromQuestion
+);
 module.exports = router;
