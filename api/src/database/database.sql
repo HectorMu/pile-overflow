@@ -62,7 +62,8 @@ create table answer (
 );
 
 create table answer_votes(
-    fk_answer int primary key,
+    id int primary key auto_increment,
+    fk_answer int,
     fk_question int, 
     fk_user int,
     foreign key(fk_user)references user(id),
