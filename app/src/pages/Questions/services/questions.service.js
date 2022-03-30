@@ -1,6 +1,15 @@
 import API from "../../config/API";
 import helpers from "@/helpers/helpers";
 
+const getAllQuestions = async () => {
+  try {
+    const response = await fetch(`${API}/global/questions`);
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const createQuestion = async (data) => {
   try {
     const response = await fetch(
@@ -102,4 +111,5 @@ export default {
   updateQuestion,
   checkOwnership,
   deleteQuestion,
+  getAllQuestions,
 };

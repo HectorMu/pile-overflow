@@ -20,7 +20,7 @@ const Sidebar = ({ setIsActive, isActive }) => {
         </button>
       </div>
       <nav className="menu">
-        <NavLink to="/home" className="menu-item">
+        <NavLink to="/" className="menu-item">
           Home
         </NavLink>
         <NavLink to="/me/questions" className="menu-item">

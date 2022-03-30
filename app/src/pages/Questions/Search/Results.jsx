@@ -29,7 +29,7 @@ const Results = () => {
         </h3>
         <Button
           as={Link}
-          to="/newanswer"
+          to="/newquestion"
           className="rounded-0 shadow"
           variant="primary"
         >
@@ -38,26 +38,29 @@ const Results = () => {
       </div>
 
       <Col xl="8" className="mx-auto mt-3">
-        {results.map((result, i) => (
-          <Card
-            key={i + result.question}
-            className="rounded-0 shadow mb-3"
-            style={{ cursor: "pointer" }}
-            onClick={() => handleSelection(result)}
-          >
-            <Card.Body>
-              [{result.status}] <h5>{result.question}</h5>
-              <p>-{result.description}</p>
-            </Card.Body>
-            <div className="d-flex justify-content-end align-items-center pe-2 gap-2">
-              {result.tags.map((tag) => (
-                <h5 key={i + tag.description}>
-                  <Badge className="rounded fw-light">{tag.description}</Badge>
-                </h5>
-              ))}
-            </div>
-          </Card>
-        ))}
+        {results &&
+          results.map((result, i) => (
+            <Card
+              key={i + result.question}
+              className="rounded-0 shadow mb-3"
+              style={{ cursor: "pointer" }}
+              onClick={() => handleSelection(result)}
+            >
+              <Card.Body>
+                [{result.status}] <h5>{result.question}</h5>
+                <p>-{result.description}</p>
+              </Card.Body>
+              <div className="d-flex justify-content-end align-items-center pe-2 gap-2">
+                {result.tags.map((tag) => (
+                  <h5 key={i + tag.description}>
+                    <Badge className="rounded fw-light">
+                      {tag.description}
+                    </Badge>
+                  </h5>
+                ))}
+              </div>
+            </Card>
+          ))}
       </Col>
     </Container>
   );

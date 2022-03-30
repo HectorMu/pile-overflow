@@ -45,7 +45,7 @@ const Login = () => {
     );
     setUser(JSON.parse(window.localStorage.getItem("POSession")));
     toast.success("Welcome!", { id: tLoading });
-    navigate("/home");
+    navigate("/");
   };
 
   return (

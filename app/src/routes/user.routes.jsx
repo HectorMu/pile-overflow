@@ -2,6 +2,8 @@ import IsAlreadyLogged from "../components/Auth/IsAlreadyLogged";
 import IsLoggedIn from "@/components/Auth/IsLoggedIn";
 import Add from "@/pages/Questions/Add/Add";
 import Index from "@/pages/Index/Index";
+import Questions from "@/pages/User/Questions/Questions";
+import Answers from "@/pages/User/Answers/Answers";
 
 const Template = {
   dev: [
@@ -15,11 +17,19 @@ const Template = {
   production: [
     {
       path: "/",
-      element: <IsAlreadyLogged view={Index} />,
+      element: <Index />,
     },
     {
-      path: "/newanswer",
+      path: "/newquestion",
       element: <IsLoggedIn view={Add} />,
+    },
+    {
+      path: "/me/questions",
+      element: <IsLoggedIn view={Questions} />,
+    },
+    {
+      path: "/me/answers",
+      element: <IsLoggedIn view={Answers} />,
     },
   ],
 };

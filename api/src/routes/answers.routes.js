@@ -7,7 +7,7 @@ const controller = require("../controllers/answers.controller");
 router.get("/api/global/answers/:questionid", controller.getAllQuestionAnswers);
 
 router.get("/api/answers/", verifyToken, controller.getAllUserAnswers);
-router.post(
+router.get(
   "/api/answer/vote/:fk_answer/:fk_question",
   verifyToken,
   controller.registerVote

@@ -45,9 +45,10 @@ controller.getOneUserAnswerFromQuestion = async (req, res) => {
 
 controller.getAllUserAnswers = async (req, res) => {
   try {
-    const answers = await conn.query("select * from answer where fk_user = ?", [
-      req.user.id,
-    ]);
+    const answers = await conn.query(
+      "select a.id, a.answer, a.fk_question, q.question from answer a, question q where a.fk_question = q.id && a.fk_user = ?",
+      [req.user.id]
+    );
     res.json(answers);
   } catch (error) {
     console.log(error);

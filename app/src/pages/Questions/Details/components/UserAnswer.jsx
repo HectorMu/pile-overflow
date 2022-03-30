@@ -18,6 +18,7 @@ const UserAnswer = () => {
   const { params, navigate } = useRouterHooks();
 
   const getActualAnswer = useCallback(async () => {
+    if (user === null) return;
     const fetchedAns = await answersService.getUserCurrentAnswerFromQuestion(
       params.id
     );
@@ -44,20 +45,22 @@ const UserAnswer = () => {
     setOnEditing(false);
   };
   const handleDelete = async () => {
+    if (user === null) return;
     const results = await answersService.deleteAnswer(answer.id);
     if (!results.status) {
       return toast.error("Somethin went´t wrong");
     }
 
-    getActualAnswer();
-    setAnswer({});
+    toast.success("Answer deleted");
+
+    setAnswer({ answer: "" });
+    setFetchedAnswer({ answer: "" });
   };
 
   useEffect(() => {
     getActualAnswer();
   }, [getActualAnswer]);
 
-  console.log(fetchedAnswer);
   return (
     <div className="mt-4">
       {fetchedAnswer?.answer?.length > 0 ? (

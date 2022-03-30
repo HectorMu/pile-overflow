@@ -213,6 +213,20 @@ controller.editQuestion = async (req, res) => {
 
 controller.flagQuestionAsResolved = async (req, res) => {
   try {
+    const results = await conn.query(
+      `select * from question where status = 'Resolved' && id = ?`,
+      [req.params.id]
+    );
+    if (results.length > 0) {
+      await conn.query(
+        `update question set status = 'Unresolved' where id = ?`,
+        [req.params.id]
+      );
+      return res.json({
+        status: true,
+        statusText: "Question flagged as unresolved",
+      });
+    }
     await conn.query(`update question set status = 'Resolved' where id = ?`, [
       req.params.id,
     ]);

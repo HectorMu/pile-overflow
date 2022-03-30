@@ -29,6 +29,9 @@ const Add = () => {
     setQuestionTags((old) => [...old, tag]);
   };
 
+  const removeQuestionTag = (tag) => {
+    setQuestionTags(questionTags.filter((element) => element.id !== tag.id));
+  };
   const handleChange = (key, value) =>
     setQuestion({ ...question, [key]: value });
 
@@ -50,10 +53,6 @@ const Add = () => {
     toast.success("Question published!, wait for help! ");
   };
 
-  const removeQuestionTag = (tag) => {
-    setQuestionTags(questionTags.filter((element) => element.id !== tag.id));
-  };
-
   const getTagsHandler = async () => {
     const fetchedTags = await questionsService.getTags();
     setTags(fetchedTags);
@@ -63,7 +62,6 @@ const Add = () => {
     getTagsHandler();
   }, []);
 
-  console.log(questionTags);
   return (
     <Container fluid>
       <Col className="mx-auto" xxl="10">

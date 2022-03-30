@@ -46,9 +46,22 @@ const deleteAnswer = async (fk_answer) => {
   }
 };
 
+const addVoteToAnswer = async (fk_answer, fk_question) => {
+  try {
+    const response = await fetch(
+      `${API}/answer/vote/${fk_answer}/${fk_question}`,
+      helpers.authGetConfig()
+    );
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default {
   getQuestionAnswers,
   getUserCurrentAnswerFromQuestion,
   saveAnswer,
   deleteAnswer,
+  addVoteToAnswer,
 };
