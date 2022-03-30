@@ -18,7 +18,7 @@ const NoUserCard = ({ questions }) => {
           questions with answers to help devs to mitigate bugs and errors
         </h5>
         <div className="d-flex justify-content-center flex-column align-items-center shadow p-4 mt-5">
-          <h5>Join to the community</h5>
+          <h5 className="text-center">Join to the community</h5>
           <Link to={"/signup"} className="btn btn-primary">
             Create an account
           </Link>

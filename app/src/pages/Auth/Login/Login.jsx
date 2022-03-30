@@ -49,9 +49,8 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="d-flex align-items-center h-100">
+    <Container fluid className="d-flex mt-5">
       <Col className="mx-auto" xl="4">
-        <h1 className="text-center">Welcome back</h1>
         <Card
           onMouseEnter={() => setOnCardFocus(true)}
           onMouseLeave={() => setOnCardFocus(false)}
